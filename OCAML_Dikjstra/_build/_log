@@ -1,0 +1,40 @@
+### Starting build.
+# Target: ftest.ml.depends, tags: { extension:ml, file:ftest.ml, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules ftest.ml > ftest.ml.depends # cached
+# Target: algo.ml.depends, tags: { extension:ml, file:algo.ml, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules algo.ml > algo.ml.depends
+# Target: ford_fulkerson.mli.depends, tags: { extension:mli, file:ford_fulkerson.mli, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules ford_fulkerson.mli > ford_fulkerson.mli.depends # cached
+# Target: graph.mli.depends, tags: { extension:mli, file:graph.mli, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules graph.mli > graph.mli.depends # cached
+# Target: graph.cmi, tags: { byte, compile, extension:mli, file:graph.mli, interf, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o graph.cmi graph.mli # cached
+# Target: ford_fulkerson.cmi, tags: { byte, compile, extension:mli, file:ford_fulkerson.mli, interf, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o ford_fulkerson.cmi ford_fulkerson.mli # cached
+# Target: gfile.mli.depends, tags: { extension:mli, file:gfile.mli, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules gfile.mli > gfile.mli.depends # cached
+# Target: gfile.cmi, tags: { byte, compile, extension:mli, file:gfile.mli, interf, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o gfile.cmi gfile.mli # cached
+# Target: algo.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:algo.cmo, file:algo.ml, implem, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o algo.cmo algo.ml
+# Target: ftest.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:ftest.cmo, file:ftest.ml, implem, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o ftest.cmo ftest.ml
+# Target: ford_fulkerson.ml.depends, tags: { extension:ml, file:ford_fulkerson.ml, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules ford_fulkerson.ml > ford_fulkerson.ml.depends # cached
+# Target: graph.ml.depends, tags: { extension:ml, file:graph.ml, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules graph.ml > graph.ml.depends # cached
+# Target: graph.cmx, tags: { compile, extension:cmx, extension:ml, file:graph.cmx, file:graph.ml, implem, native, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o graph.cmx graph.ml # cached
+# Target: ford_fulkerson.cmx, tags: { compile, extension:cmx, extension:ml, file:ford_fulkerson.cmx, file:ford_fulkerson.ml, implem, native, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o ford_fulkerson.cmx ford_fulkerson.ml # cached
+# Target: gfile.ml.depends, tags: { extension:ml, file:gfile.ml, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules gfile.ml > gfile.ml.depends # cached
+# Target: gfile.cmx, tags: { compile, extension:cmx, extension:ml, file:gfile.cmx, file:gfile.ml, implem, native, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o gfile.cmx gfile.ml # cached
+# Target: algo.cmx, tags: { compile, extension:cmx, extension:ml, file:algo.cmx, file:algo.ml, implem, native, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o algo.cmx algo.ml
+# Target: ftest.cmx, tags: { compile, extension:cmx, extension:ml, file:ftest.cmx, file:ftest.ml, implem, native, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o ftest.cmx ftest.ml
+# Target: ftest.native, tags: { dont_link_with, extension:native, file:ftest.native, link, native, ocaml, program, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt graph.cmx ford_fulkerson.cmx gfile.cmx algo.cmx ftest.cmx -o ftest.native
+# Compilation successful.

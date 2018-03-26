@@ -1,0 +1,13 @@
+open Graph
+
+val trouverChemin: ('v, 'e) graph -> ('v, 'e) vertex_info -> ('v, 'e) vertex_info -> ('a, 'b) Hashtbl.t option
+
+val transform:  ('a, 'b) Hashtbl.t option -> ('a, 'b) Hashtbl.t 
+
+
+
+(* Rest a voir les types ci dessus
+Comment inclure ford f dans le projet (le compiler avec ftest native)
+appelle on avec label on avec les id 
+Compilateur au max ?? 
+*)

@@ -1,0 +1,56 @@
+open Graph
+open List
+
+(*La fonction trouver chemin qui cherche le chemin le plus court entre la source et la destination en prenant en compte les sommets déjà visités*)
+let trouver_chemin g src dest  = 
+  let rec appartient element liste =
+    match liste with
+    |[]-> false
+    |actuel::reste -> if element= actuel then true else appartient element rest in
+  let choix_optimal list1 list2 =
+    if length (list1) = 0 then list2 else
+    if length (list2) = 0 then list1 else
+      if lentgh (list1) < length (list2) then list1 else list2 in
+  let chercher_chemin chemin parcouru = function
+    |[]->[]
+    |(e , id)::reste -> if appartient id parcouru then chercherChemin chemin parcouru reste else
+      if id=dest then (append chemin [(e,id)])
+      else choix_optimal (chercherChemin (append chemin [(e,id)]) id::visited (find_vertex g id).outedges) (chercherChemin chemin parcouru reste) in
+  chercherChemin [] [] (find_vertex g src).outedges)
+
+
+(* Cette fonction nous permet de trouver le flow minimal (celui que l'on va utiliser) au sein du chemin que l'on parcourt*)
+
+let flow_chemin chemin =
+
+  let rec flow_min min = function
+    |[]->min
+    |(e, id)::reste -> if e<min then flow_min e reste else flow_min min reste in
+  flow_min 999 chemin
+
+
+(* Cette fonction met a jour les valeurs des labels le long du chemin "chemin", on soustrait le flow *)
+
+let maj_chemin g flow chemin =
+
+  let rec maj_edges = function
+    |[]->[]
+    |(e, id)::reste -> if appartient (e, id) chemin then
+        (if e-flow = 0 then (maj_edges reste) else (e-flow, id)::maj_edges)
+      else (e, id)::(maj_edges reste)
+  in
+
+  let maj_vertex_info =
+    (fun x -> { label= x.label ; id=x.id ; outedges = maj_edges x.outedges ; inedges = maj_edges x.inedges)
+  in
+
+  {vertices = map_hashtbl graph.vertices update_vertex_info}
+
+
+(* Cette fonction permet d'ajouter le retour sur le chemin trouvé précédemment, on ajoute l'arrête si elle n'éxistait pas, sinon on la met a jour en ajoutant le flow trouvé avec les fonctions précédentes.*)
+                   
+let rec maj_retour g flow source = function
+  |[]->()
+  |(e, id)::reste -> add_edge_addition g id source flow;
+    maj_retour g flow id reste;
+
